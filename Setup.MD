@@ -202,3 +202,18 @@ scp {ceph.conf, ceph.client.admin.keyring} client:/etc/ceph
 ```code
 ceph orch host label add client.ceph.example.com _admin
 ```
+
+## Step 16: Check the health of the Cluster
+
+1. First ssh to clienta system.
+   
+```code
+ssh clienta
+```
+
+2. Check the health of the CEPH Cluster.
+
+```code
+ceph -s
+ceph status
+```
