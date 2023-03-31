@@ -21,7 +21,8 @@ ami-05c8ca4485f8b138a
 Create the SG with three inbound rules
 1. SSH         -   22 - My IP (For Secure Communication)
 2. Custom TCP  - 8443 - Any IPv4 (Dashboard)
-3. All traffic -  All - Self-Source (For all the servers to communicate with each other)
+3. Custom TCP  - 3000 - Grafana Dashboard
+4. All traffic -  All - Self-Source (For all the servers to communicate with each other)
 ---
 
 ## Step 3: Provision the EC2-Instance
