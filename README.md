@@ -138,39 +138,63 @@ ssh-copy-id -f -i /etc/ceph/ceph.pub client
 ```yaml
 ---
 service_type: host
-addr: 172.31.34.135
-hostname: servera.ceph.lab.com
+addr: <SERVERA_PRIVATE_IP>
+hostname: servera.lab.com
 ---
 service_type: host
-addr: 172.31.41.17
-hostname: serverb.ceph.lab.com
+addr: <SERVERB_PRIVATE_IP>
+hostname: serverb.lab.com
 ---
 service_type: host
-addr: 172.31.37.248
-hostname: client.ceph.lab.com
+addr: <SERVERC_PRIVATE_IP>
+hostname: serverc.lab.com
+---
+service_type: host
+addr: <CLIENTA_PRIVATE_IP>
+hostname: clienta.lab.com
+---
+service_type: host
+addr: <GRAFANA_PRIVATE_IP>
+hostname: grafana.lab.com
 ---
 service_type: mon
 placement:
-  hosts:
-    - servera.ceph.lab.com
-    - serverb.ceph.lab.com
-    - client.ceph.lab.com
+  hosts: 
+    - servera.lab.com
+    - serverb.lab.com
+    - serverc.lab.com
+    - clienta.lab.com
 ---
 service_type: mgr
 placement:
-  hosts:
-    - servera.ceph.lab.com
-    - serverb.ceph.lab.com
-    - client.ceph.lab.com
+  hosts: 
+    - servera.lab.com
+    - serverb.lab.com
+    - serverc.lab.com
+    - clienta.lab.com
 ---
 service_type: osd
 service_id: default_drive_group
 placement:
-  host_pattern: 'server*'
+  hosts: 
+    - servera.lab.com
+    - serverb.lab.com
+    - serverc.lab.com
 data_devices:
   paths:
     - /dev/xvdb
     - /dev/xvdc
+    - /dev/xvdd
+---
+service_type: grafana
+service_name: grafana
+placement:
+  count: 1
+  hosts:
+    - grafana.lab.com
+spec:
+  initial_admin_password: redhat
+  port: 3000
 ...
 ```
 
