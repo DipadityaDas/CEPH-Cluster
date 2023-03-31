@@ -1,0 +1,60 @@
+---
+service_type: host
+addr: <SERVERA_PRIVATE_IP>
+hostname: servera.lab.com
+---
+service_type: host
+addr: <SERVERB_PRIVATE_IP>
+hostname: serverb.lab.com
+---
+service_type: host
+addr: <SERVERC_PRIVATE_IP>
+hostname: serverc.lab.com
+---
+service_type: host
+addr: <CLIENTA_PRIVATE_IP>
+hostname: clienta.lab.com
+---
+service_type: host
+addr: <GRAFANA_PRIVATE_IP>
+hostname: grafana.lab.com
+---
+service_type: mon
+placement:
+  hosts: 
+    - servera.lab.com
+    - serverb.lab.com
+    - serverc.lab.com
+    - clienta.lab.com
+---
+service_type: mgr
+placement:
+  hosts: 
+    - servera.lab.com
+    - serverb.lab.com
+    - serverc.lab.com
+    - clienta.lab.com
+---
+service_type: osd
+service_id: default_drive_group
+placement:
+  hosts: 
+    - servera.lab.com
+    - serverb.lab.com
+    - serverc.lab.com
+data_devices:
+  paths:
+    - /dev/xvdb
+    - /dev/xvdc
+    - /dev/xvdd
+---
+service_type: grafana
+service_name: grafana
+placement:
+  count: 1
+  hosts:
+    - grafana.lab.com
+spec:
+  initial_admin_password: redhat
+  port: 3000
+...
