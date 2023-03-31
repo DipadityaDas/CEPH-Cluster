@@ -226,7 +226,7 @@ ceph orch apply -i initial_config.yaml --dry-run
 ```code
 cd /etc/ceph
 
-scp {ceph.conf, ceph.client.admin.keyring} client:/etc/ceph
+scp {ceph.conf,ceph.client.admin.keyring} client:/etc/ceph
 ```
 
 ## Step 15: Add _admin label to client
