@@ -249,4 +249,3 @@ ssh clienta
 ceph -s
 ceph status
 ```
-svsvsv
