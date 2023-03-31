@@ -73,9 +73,10 @@ scp 	/etc/hosts		clienta:/etc/hosts
 
 ```code
 ssh-keygen
-ssh-copy-id client
-ssh-copy-id servera
+ssh-copy-id clienta
 ssh-copy-id serverb
+ssh-copy-id serverc
+ssh-copy-id grafana
 ```
 ---
 
@@ -93,9 +94,11 @@ yum install -y cephadm-ansible
 2. Create a file named `ceph-hosts`
 
 ```code
-client.ceph.lab.com
-serverb.ceph.lab.com
-servera.ceph.lab.com
+servera.lab.com
+serverb.lab.com
+serverc.lab.com
+grafana.lab.com
+clienta.lab.com
 ```
 ---
 
