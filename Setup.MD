@@ -106,16 +106,16 @@ ansible-playbook -i ceph-hosts cephadm-preflight.yml --extra-vars "ceph_origin=r
 
 ```code
 cephadm bootstrap                                  \
---mon-ip                      <servera_private_ip> \
---cluster-network 	            <subnet_ipv4_cidr> \
---ssl-dashboard-port                          8443 \
---initial-dashboard-password            <PASSWORD> \
---dashboard-password-noupdate                      \
+--apply-spec                   initial_config.yaml \
 --registry-url                  registry.redhat.io \
 --registry-username                     <USERNAME> \
 --registry-password                     <PASSWORD> \
---allow-fqdn-hostname                              \
---apply-spec                   initial_config.yaml
+--initial-dashboard-password            <PASSWORD> \
+--dashboard-password-noupdate                      \
+--ssl-dashboard-port                          8443 \
+--mon-ip                      <servera_private_ip> \
+--cluster-network 	            <subnet_ipv4_cidr> \
+--allow-fqdn-hostname
 ```
 
 > NOTE: In AWS, `--apply-spec` will be done later because during execution of cephadm bootstrap, it will show an error while trying to add the /etc/ceph/ceph.pub key to serverb and client.
