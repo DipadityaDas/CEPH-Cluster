@@ -113,7 +113,6 @@ ansible-playbook -i ceph-hosts cephadm-preflight.yml --extra-vars "ceph_origin=r
 
 ```code
 cephadm bootstrap                                  \
---apply-spec                   initial_config.yaml \
 --registry-url                  registry.redhat.io \
 --registry-username                     <USERNAME> \
 --registry-password                     <PASSWORD> \
@@ -121,7 +120,7 @@ cephadm bootstrap                                  \
 --dashboard-password-noupdate                      \
 --ssl-dashboard-port                          8443 \
 --mon-ip                      <servera_private_ip> \
---cluster-network 	            <subnet_ipv4_cidr> \
+--cluster-network               <subnet_ipv4_cidr> \
 --allow-fqdn-hostname
 ```
 
