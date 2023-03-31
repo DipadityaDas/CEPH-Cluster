@@ -131,7 +131,9 @@ cephadm bootstrap                                  \
 
 ```code
 ssh-copy-id -f -i /etc/ceph/ceph.pub serverb
-ssh-copy-id -f -i /etc/ceph/ceph.pub client
+ssh-copy-id -f -i /etc/ceph/ceph.pub serverc
+ssh-copy-id -f -i /etc/ceph/ceph.pub grafana
+ssh-copy-id -f -i /etc/ceph/ceph.pub clienta
 ```
 ---
 
